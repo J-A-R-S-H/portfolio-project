@@ -1,7 +1,11 @@
 function sectionHome() {
   return (
-      <div className="bg-blue-500 text-white p-5 ">
-              <p>test</p>
+      <div className="">
+
+        <h1>Header</h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae cupiditate temporibus sint ipsa aut iure! Voluptate, assumenda eos eum eveniet aliquid velit voluptatem dolorum minima. Impedit dolores eveniet modi. Laboriosam.
+            
+              </p>
 
       This is a sample component styled with Tailwind CSS.
     </div>

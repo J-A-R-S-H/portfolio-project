@@ -5,14 +5,9 @@ import SectionHome from './sections/SectionHome';
 function App() {
   return (
     <>
-        <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-
       <BrowserRouter basename='/'>
-          <div id="site-wrapper">
+          <div id="site-wrapper" className="bg-blue-950 text-white p-5 h-max min-h" >
             <Routes>
-              
               <Route path="/" element={<SectionHome />} />
             </Routes>
           </div>
