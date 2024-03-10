@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SectionHome from './sections/SectionHome';
-import Header from './components/Header';
+import PageLanding from './pages/PageLanding';
 
 function App() {
   return (
     <>
       <BrowserRouter basename='/'>
-          <div id="site-wrapper" className="bg-blue-950 text-white p-5 h-max min-h" >
-          <Header />
+          <div id="site-wrapper" className="bg-background text-white p-5 h-max min-h mb-14" >
             <Routes>
-              <Route path="/" element={<SectionHome />} />
+              <Route path="/" element={<PageLanding />} />
             </Routes>
           </div>
       </BrowserRouter>
