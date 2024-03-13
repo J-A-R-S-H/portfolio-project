@@ -4,13 +4,15 @@ import SectionProject from "../sections/SectionProjects";
 import SectionAbout from "../sections/SectionAbout";
 import SectionSkills from "../sections/SectionSkills";
 
+const restBase = "https://johnsjustwantstochill.ca/portfolio-project-headless/wp-json/wp/v2/"
+
 function PageLanding() {
   return (
       <div>
           <Header />
 <SectionProject />
 <SectionAbout />
-<SectionSkills />
+<SectionSkills restBase={restBase}/>
       <Navigation />
     </div>
 
