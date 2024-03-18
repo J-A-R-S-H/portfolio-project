@@ -1,16 +1,17 @@
 import Navigation from "../components/Navigation";
 import Header from "../components/Header";
-import SectionProject from "../sections/SectionProjects";
+import SectionProjects from "../sections/SectionProjects";
 import SectionAbout from "../sections/SectionAbout";
 import SectionSkills from "../sections/SectionSkills";
 
-const restBase = "https://johnsjustwantstochill.ca/portfolio-project-headless/wp-json/wp/v2/"
-
 function PageLanding() {
+
+  const restBase = "https://johnsjustwantstochill.ca/portfolio-project-headless/wp-json/wp/v2/"
+
   return (
       <div>
           <Header />
-<SectionProject />
+<SectionProjects restBase={restBase}/>
 <SectionAbout />
 <SectionSkills restBase={restBase}/>
       <Navigation />

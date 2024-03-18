@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom'
 import { useState } from "react"
 import { useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faJs, faCss3, faReact, faHtml5, faSass, faGitAlt } from "@fortawesome/free-brands-svg-icons"
+import { faJs, faCss3, faReact, faHtml5, faSass, faGitAlt, faPhp} from "@fortawesome/free-brands-svg-icons"
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-library.add(faJs, faCss3, faReact, faHtml5, faSass,faGitAlt )
+library.add(faJs, faCss3, faReact, faHtml5, faSass,faGitAlt, faPhp)
 
 function SectionSkills({restBase}) {
 
     const restPath = restBase + 'coding?_embed'
+    const restPathDesign = restBase + "design?_embed"
     const [restData, setData] = useState([])
+    const [restDataDesign, setDataDesign] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,7 +23,6 @@ function SectionSkills({restBase}) {
             if ( response.ok ) {
                 const data = await response.json()
                 console.log(data)
-                console.log(data[3].acf.skill_svg)
                 setData(data)
                 setLoadStatus(true)
             } else {
@@ -30,25 +32,60 @@ function SectionSkills({restBase}) {
         fetchData()
     }, [restPath])
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(restPathDesign)
+            if ( response.ok ) {
+                const data = await response.json()
+                console.log(data)
+                setDataDesign(data)
+                setLoadStatus(true)
+            } else {
+                setLoadStatus(false)
+            }
+        }
+        fetchData()
+    }, [restPathDesign])
+
     return (
         <>
             {isLoaded ? (
                 <section className="mt-32">
                     <h2 className="text-center">Skills</h2>
-                    <h3>Programming</h3>
-                    <div className='flex flex-wrap gap-x-4 gap-y-1'>                   
+                    <h3 className='programming-title w-fit'>Programming</h3>
+                    <div className='flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-normal'>                   
                          {restData.map(skill => (
-                        <div className="mt-4 bg-accent flex gap-5 items-center bg-accent rounded-xl  hover:bg-primary w-72	" key={skill.id}>
-<div className='bg-primary rounded-l-xl	p-2 w-14 flex justify-center items-center'>
+                            <div className="mt-4 bg-accent flex gap-5 items-center bg-accent rounded-lg  hover:bg-secondary w-72 transition duration-300 ease-in-out transform hover:scale-105 w-72" >
+<div className='bg-secondary rounded-l-lg	p-2 w-14 flex justify-center items-center'>
 <FontAwesomeIcon icon={skill.acf.skill_svg} size="2xl" />
 </div>
 
-                            <p className='font-medium'>{skill.name}</p>
+
+
+                            <p className='font-medium'>{skill.name}</p> 
                         </div>
                     ))}
+                    </div>
+
+
+
+
+
+
+<h3 className='mt-20 design-title w-fit'>Design</h3>
+
+<div className='flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-normal'>    
+{restDataDesign.map(skill => (
+              
+<div className="mt-4 bg-accent flex gap-5 items-center bg-accent rounded-lg  hover:bg-primary w-72 transition duration-300 ease-in-out transform hover:scale-105 w-72" >
+<div className={`${skill.name} bg-primary rounded-l-lg p-2 w-14 flex justify-center items-center design-div`} dangerouslySetInnerHTML={{ __html: skill.acf.skill_svg }} />
+                   <p className='font-medium'>{skill.name}</p> 
+                   </div>
+))}
+
                     </div>  
 
-                 
+
                 </section>
                 
             ) : (
