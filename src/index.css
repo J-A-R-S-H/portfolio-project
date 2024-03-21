@@ -39,3 +39,12 @@ body {
 .programming-title:hover + div div {
   background-color: #862547;
 }
+
+.outly-icons {
+  height: 30px;
+    padding: 10px;
+    transition: fill .2s;
+    cursor: pointer;
+    overflow: unset;
+    box-sizing: unset;
+}
