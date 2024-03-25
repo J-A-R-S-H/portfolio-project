@@ -1,11 +1,12 @@
 import Navigation from "../components/Navigation";
-import Header from "../components/Header";
+import Intro from "../components/Intro";
 import SectionProjects from "../sections/SectionProjects";
 import SectionAbout from "../sections/SectionAbout";
 import SectionSkills from "../sections/SectionSkills";
 import { useEffect, useState } from "react";
 import Preloader from "../components/Preloader";
 import { AnimatePresence } from "framer-motion";
+import MediaIcons from "../components/MediaIcons";
 
 function PageLanding() {
 
@@ -30,13 +31,14 @@ function PageLanding() {
         isLoading && <Preloader />
       }
       </AnimatePresence>
-
-          <Header />
-          <Navigation />
+      <Navigation />
+          <Intro />
       
 <SectionProjects restBase={restBase}/>
 <SectionAbout />
 <SectionSkills restBase={restBase}/>
+<MediaIcons />
+
 
     </main>
 

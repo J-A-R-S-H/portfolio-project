@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Intro() {
   return (
     <header className="site-header mt-10">
       

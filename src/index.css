@@ -48,3 +48,13 @@ body {
     overflow: unset;
     box-sizing: unset;
 }
+
+.header {
+  backdrop-filter: blur(30px) ;
+  -webkit-backdrop-filter: blur(30px);
+  
+  background: rgba(225, 225, 225, 0.05);
+  
+  mask-image: linear-gradient(rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%);
+  
+}
