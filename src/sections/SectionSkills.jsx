@@ -5,6 +5,9 @@ import { useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faJs, faCss3, faReact, faHtml5, faSass, faGitAlt, faPhp} from "@fortawesome/free-brands-svg-icons"
 import { library } from '@fortawesome/fontawesome-svg-core'
+import Preloader from "../components/Preloader";
+import { AnimatePresence } from "framer-motion";
+
 
 library.add(faJs, faCss3, faReact, faHtml5, faSass,faGitAlt, faPhp)
 
@@ -16,36 +19,27 @@ function SectionSkills({restBase}) {
     const [restDataDesign, setDataDesign] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
-
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(restPath)
-            if ( response.ok ) {
-                const data = await response.json()
-                console.log(data)
-                setData(data)
-                setLoadStatus(true)
-            } else {
-                setLoadStatus(false)
-            }
-        }
-        fetchData()
-    }, [restPath])
+            const response = await fetch(restPath);
+            const responseDesign = await fetch(restPathDesign);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(restPathDesign)
-            if ( response.ok ) {
-                const data = await response.json()
-                console.log(data)
-                setDataDesign(data)
-                setLoadStatus(true)
+            if (response.ok && responseDesign.ok) {
+                const data = await response.json();
+                const dataDesign = await responseDesign.json();
+                setData(data);
+                setDataDesign(dataDesign);
+                const timer = setTimeout(() => {
+                    setLoadStatus(true);
+                    window.scrollTo(0, 0);
+                  }, 2000);
             } else {
-                setLoadStatus(false)
+                setLoadStatus(false);
             }
-        }
-        fetchData()
-    }, [restPathDesign])
+        };
+        fetchData();
+    }, [restPath, restPathDesign]);
+    
 
     return (
         <>
@@ -67,11 +61,6 @@ function SectionSkills({restBase}) {
                     ))}
                     </div>
 
-
-
-
-
-
 <h3 className='mt-20 design-title w-fit'>Design</h3>
 
 <div className='flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-normal'>    
@@ -89,9 +78,14 @@ function SectionSkills({restBase}) {
                 </section>
                 
             ) : (
-                <p>Loading...</p>
+            //     <AnimatePresence mode="wait">
+            //    <Preloader />
+            //     </AnimatePresence>     )}
+<p>sdjafosa</p>
+
+
             )}
-        </>
+            </>
     );
 }
 

@@ -34,14 +34,14 @@ function PageProjects({restBase}) {
           <div className="relative">
           <img className="brightness-75" src={project?._embedded['wp:featuredmedia'][0].source_url} alt={project.title.rendered} />
           <div className="absolute top-0 right-0">
-          <Link to={`/projects${project.slug}`}>
+          <Link to={`/projects/${project.slug}`}>
            </Link>
            </div>
           </div>    
 
         
 
-          <Link to={`/projects${project.slug}`}>
+          <Link to={`/projects/${project.slug}`}>
  <h3>{project.title.rendered}</h3></Link>
         
     </article>
