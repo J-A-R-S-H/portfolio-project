@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter basename='/'>
-          <div id="site-wrapper" className="bg-background text-white p-5 h-max min-h mb-14" >
+          <div id="site-wrapper" className="bg-background text-white  h-max min-h mb-14" >
             <Routes>
               <Route path="/" element={<PageLanding />} />
               <Route path='/projects' element={<PageProjects restBase={restBase}  />} />

@@ -8,6 +8,7 @@ import Preloader from "../components/Preloader";
 import { AnimatePresence } from "framer-motion";
 import MediaIcons from "../components/MediaIcons";
 
+
 function PageLanding() {
 
   const restBase = "https://johnsjustwantstochill.ca/portfolio-project-headless/wp-json/wp/v2/"
@@ -25,7 +26,7 @@ function PageLanding() {
   
 
   return (
-      <main>
+      <main className="p-5 md:px-20 lg:px-44">
         <AnimatePresence mode="wait">
       {
         isLoading && <Preloader />

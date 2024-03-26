@@ -6,7 +6,7 @@ library.add(faHouse, faProjectDiagram, faListCheck,faCircleQuestion)
 import { useMediaQuery } from "react-responsive";
 
 import { useEffect, useState } from "react";
-
+import OutlyIcons from "./OutlyIcons";
 
 export default function Navigation() {
   const Mobile = useMediaQuery({ maxWidth: 767 });
@@ -51,12 +51,19 @@ export default function Navigation() {
           </nav>
         </footer>
       ) : (
-        <header className={`header flex justify-between fixed top-0 left-0 right-0 z-10 p-5 text-xl  transition-transform duration-300 transform ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
+        <header className={`flex justify-between fixed top-0 left-0 right-0 z-10 p-1 text-lg text-slate-300 font-semibold lg:p-4 transition-transform duration-300 transform ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div>Logo</div>
-      <ul className="flex gap-8">
+      <ul className="flex flex-col gap-1">
+      <OutlyIcons>
         <li>Projects</li>
+        </OutlyIcons>
+        <OutlyIcons>
         <li>About</li>
+        </OutlyIcons>
+        <OutlyIcons>
         <li>Skills</li>
+        </OutlyIcons>
+
       </ul>
     </header>
       )}
