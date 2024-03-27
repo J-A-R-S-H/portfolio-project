@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-
 function PageSingleProject({restBase}) {
 
   const {slug} = useParams()
@@ -8,6 +7,7 @@ function PageSingleProject({restBase}) {
   return (
       <div>
          <p>Projects</p>
+
     </div>
 
 

@@ -8,6 +8,7 @@ const restBase = "https://johnsjustwantstochill.ca/portfolio-project-headless/wp
 
 
 function App() {
+
   return (
     <>
       <BrowserRouter basename='/'>

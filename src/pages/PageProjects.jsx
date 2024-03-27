@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import Navigation from "../components/Navigation";
-    
 function PageProjects({restBase}) {
     
     const restPath = restBase + 'posts?_embed'
@@ -48,9 +47,8 @@ function PageProjects({restBase}) {
                     ))}
 
                <Navigation />
+
     </div>
-
-
   );
 }
 

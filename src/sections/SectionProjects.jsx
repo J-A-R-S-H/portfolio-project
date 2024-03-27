@@ -8,6 +8,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 faArrowUpRightFromSquare
 library.add(faArrowUpRightFromSquare)
 
+import { featuredImage } from "../util/toolbox";
 
 function SectionProjects({restBase}) {
   const restPath = restBase + 'posts?categories=15&_embed'
@@ -36,7 +37,10 @@ function SectionProjects({restBase}) {
     <article className="" key={project.title.rendered}>
           {console.log(project)}
           <div className="relative">
-          <img className="brightness-75" src={project?._embedded['wp:featuredmedia'][0].source_url} alt={project.title.rendered} />
+
+          {project.featured_media !== 0 && project._embedded &&
+                            <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                        }
           <div className="absolute top-0 right-0">
           <Link to={`/projects`}>
            <FontAwesomeIcon icon="fa-solid fa-arrow-up-right-from-square " size="lg" />
