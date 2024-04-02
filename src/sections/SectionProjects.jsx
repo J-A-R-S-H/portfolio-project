@@ -43,7 +43,7 @@ function SectionProjects({restBase}) {
                         }
           <div className="absolute top-0 right-0">
           <Link to={`/projects`}>
-           <FontAwesomeIcon icon="fa-solid fa-arrow-up-right-from-square " size="lg" />
+           <FontAwesomeIcon icon="fa-solid fa-arrow-up-right-from-square " size="lg" /> 
            </Link>
            </div>
           </div>    

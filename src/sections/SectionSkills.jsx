@@ -78,10 +78,8 @@ function SectionSkills({restBase}) {
                 </section>
                 
             ) : (
-            //     <AnimatePresence mode="wait">
-            //    <Preloader />
-            //     </AnimatePresence>     )}
-<p>sdjafosa</p>
+           
+<p>Load</p>
 
 
             )}
