@@ -30,7 +30,7 @@ function SectionProjects({restBase}) {
           fetchData()
       }, [restPath])
   return (
-    <section className="mt-32">
+    <section id="projects" className="mt-32">
 <h2 className="text-center">Featured/Live Project</h2>
 
      {restData.map(project => (

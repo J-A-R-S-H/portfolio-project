@@ -9,7 +9,7 @@ function SectionAbout() {
   const phrase = "Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge."
   const isInView = useInView(description)
   return (
-    <section className="mt-32">
+    <section id="about" className="mt-32">
 <h2 className="text-center">About</h2>
 <div ref={description}>
 <div>

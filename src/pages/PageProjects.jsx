@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from 'react-router-dom'
 import Navigation from "../components/Navigation";
+import { featuredImage } from "../util/toolbox";
+
+
 function PageProjects({restBase}) {
     
     const restPath = restBase + 'posts?_embed'
@@ -24,14 +27,17 @@ function PageProjects({restBase}) {
     }, [restPath])
 
   return (
-      <div>
-         <p>Yes it is not dynamic lol</p>
+<main className="p-5 md:px-20 lg:px-44">
 
+    <div className="projects-grid ">
          {restData.map(project => (
-    <article className="" key={project.title.rendered}>
+    <article className="project-article" key={project.title.rendered}>
           {console.log(project)}
           <div className="relative">
-          <img className="brightness-75" src={project?._embedded['wp:featuredmedia'][0].source_url} alt={project.title.rendered} />
+
+          {project.featured_media !== 0 && project._embedded &&
+                            <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                        }
           <div className="absolute top-0 right-0">
           <Link to={`/projects/${project.slug}`}>
            </Link>
@@ -45,11 +51,11 @@ function PageProjects({restBase}) {
         
     </article>
                     ))}
+                    </div>
 
                <Navigation />
 
-    </div>
-  );
+               </main>  );
 }
 
 export default PageProjects;

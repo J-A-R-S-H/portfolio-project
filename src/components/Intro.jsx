@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Intro() {
   return (
-    <header className="site-header mt-10">
+    <header id="home" className="site-header mt-10">
       
 <h1 className="text-3xl">John. S</h1>
 <p>Hallo, my name is John. S. I'm a Front End Web Developer who just enjoys building projects.
