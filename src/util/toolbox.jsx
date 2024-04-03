@@ -2,7 +2,7 @@ const featuredImage = ( featuredImageObject ) => {
     let imgWidth = featuredImageObject.media_details.sizes.full.width;
     let imgHeight = featuredImageObject.media_details.sizes.full.height;
     let imgURL = featuredImageObject.source_url;
-    let img = `<img src="${imgURL}" 
+    let img = `<img class="featured-image-element" src="${imgURL}" 
         width="${imgWidth}"
         height="${imgHeight}"
         alt="${featuredImageObject.alt_text}"

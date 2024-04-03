@@ -45,3 +45,19 @@ body {
     overflow: unset;
     box-sizing: unset;
 }
+
+#image-track {
+  transform: translate(0%, -50%); 
+width: 1000px;
+}
+.project-featured-image {
+  width:200px;
+  height: 300px;
+}
+
+.project-featured-image img { 
+  object-fit: cover;
+  object-position: 100% center;
+  width: 200px;
+  height: 300px;
+}
