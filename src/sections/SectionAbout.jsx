@@ -1,5 +1,5 @@
 
-function SectionAbout() {
+function SectionAbout({restBase}) {
 
   return (
     <section id="about" className="mt-32">

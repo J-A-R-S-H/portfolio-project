@@ -42,7 +42,8 @@ const [restData, setData] = useState([])
 
   console.log(slug)
   return (
-<main className="p-5 md:px-20 lg:px-44 ">
+    <div className="p-8 md:px-20 lg:px-48">
+<main >
           <AnimatePresence mode="wait">
       {
         isLoading && <ProjectsLoader word={formattedSlug}/>
@@ -59,39 +60,51 @@ const [restData, setData] = useState([])
            </div>
                     ))}
 
+<section className="flex flex-col gap-4 lg:">
 {restData.length > 0 && (
-  <h1>{restData[0].title.rendered}</h1>
+  <h1 className="mt-2">{restData[0].title.rendered}</h1>
 )}
+  <article>
 <h2>Overview</h2>
 {restData.length > 0 && (
 <p>
 {restData[0].acf.project_description}
 </p>
 )}
+</article>
+<article>
 <h2>Things I've learned</h2>
-
 {restData.length > 0 && (
 <p>
 {restData[0].acf.project_wdil}
 </p>
 )}
+</article>
+<article>
 <h2>Reflection</h2>
 {restData.length > 0 && (
 <p>
 {restData[0].acf.project_reflection}
 </p>
-
 )}
+</article>
 
 
-<button className="bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto">
+</section>
+
+    </main>
+
+<footer className="grid grid-cols-1	">
+<button className="bg-accent hover:bg-primary font-bold py-3 px-4 rounded-full mt-4 m-auto w-full	">
  Live Site
     </button>
     
 
-<button className="bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto">
+<button className="bg-accent hover:bg-primary font-bold py-3 px-4 rounded-full mt-2 m-auto w-full	">
 Github  </button>
-    </main>
+</footer>
+
+</div>
 
 
   );

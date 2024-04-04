@@ -36,7 +36,7 @@ function PageLanding() {
           <Intro />
       
 <SectionProjects restBase={restBase}/>
-<SectionAbout />
+<SectionAbout restBase={restBase}/>
 <SectionSkills restBase={restBase}/>
 <MediaIcons />
 
