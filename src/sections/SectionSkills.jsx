@@ -45,7 +45,7 @@ function SectionSkills({restBase}) {
         <>
             {isLoaded ? (
                 <section id="skills" className="mt-32">
-                    <h2 className="text-center">Skills</h2>
+                    <h2 className="text-center skills-header-text">Skills</h2>
                     <h3 className='programming-title w-fit'>Programming</h3>
                     <div className='flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-normal'>                   
                          {restData.map(skill => (

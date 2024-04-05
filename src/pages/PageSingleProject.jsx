@@ -3,6 +3,13 @@ import ProjectsLoader from "../components/ProjectsLoader";
 import { AnimatePresence } from "framer-motion";
 import { useState,useEffect } from "react";
 import { featuredImage } from "../util/toolbox";
+import MediaIcons from "../components/MediaIcons";
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(faCircleLeft)
 
 function PageSingleProject({restBase}) {
   const {slug} = useParams()
@@ -28,9 +35,7 @@ const [restData, setData] = useState([])
     window.scrollTo(0, 0);
     setLoading(false);
 
-  }, 0)
-
-  
+  }, 1000)
         } else {
             setLoading(true)
         }
@@ -43,7 +48,7 @@ const [restData, setData] = useState([])
   console.log(slug)
   return (
     <div className="p-8 md:px-20 lg:px-48">
-<main >
+<main id="site-main" className="lg:flex gap-4">
           <AnimatePresence mode="wait">
       {
         isLoading && <ProjectsLoader word={formattedSlug}/>
@@ -51,19 +56,34 @@ const [restData, setData] = useState([])
             </AnimatePresence>
             
 
+            <Link to={`/projects`}>
+<FontAwesomeIcon icon={faCircleLeft} size="2xl" className="mb-2" style={{color: "#ffffff",}}/>
+</Link>
 {restData.map(project => (
 
           <div>
           {project.featured_media !== 0 && project._embedded &&
-                            <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
+                            <figure className="featured-image w-full" dangerouslySetInnerHTML={featuredImage(project._embedded['wp:featuredmedia'][0])}></figure>
                         }
            </div>
                     ))}
 
-<section className="flex flex-col gap-4 lg:">
-{restData.length > 0 && (
-  <h1 className="mt-2">{restData[0].title.rendered}</h1>
+<section className="flex flex-col gap-4 ">
+  {restData.length > 0 && (
+  <div>
+    <h1 className="mt-2 lg:mt-0">{restData[0].title.rendered}</h1>
+    <p>
+      {restData[0].acf.tools_used.map((tool, index) => (
+        
+        <span key={index}>{tool.tool} | </span>
+
+      ))}
+    </p>
+  </div>
 )}
+
+
+
   <article>
 <h2>Overview</h2>
 {restData.length > 0 && (
@@ -90,20 +110,23 @@ const [restData, setData] = useState([])
 </article>
 
 
-</section>
-
-    </main>
-
-<footer className="grid grid-cols-1	">
-<button className="bg-accent hover:bg-primary font-bold py-3 px-4 rounded-full mt-4 m-auto w-full	">
+<div className="grid grid-cols-1 	">
+<button className="max-w-96	 bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto w-full	">
  Live Site
     </button>
     
 
-<button className="bg-accent hover:bg-primary font-bold py-3 px-4 rounded-full mt-2 m-auto w-full	">
+<button className="max-w-96	bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-2 m-auto w-full	">
 Github  </button>
-</footer>
+</div>
+</section>
 
+
+    </main>
+
+<footer>
+<MediaIcons />
+</footer>
 </div>
 
 

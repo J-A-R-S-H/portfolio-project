@@ -19,21 +19,22 @@ function PageLanding() {
     const timer = setTimeout(() => {
       setLoading(false);
       window.scrollTo(0, 0);
-    }, 0);
+    }, 2000);
     }, []);
 
 
   
 
   return (
-      <main className="p-5 md:px-20 lg:px-44">
+    
+      <main id="site-main" className="p-5 md:px-20 lg:px-44">
         <AnimatePresence mode="wait">
       {
         isLoading && <Preloader />
       }
       </AnimatePresence>
       <Navigation />
-          <Intro />
+          <Intro restBase={restBase}/>
       
 <SectionProjects restBase={restBase}/>
 <SectionAbout restBase={restBase}/>
