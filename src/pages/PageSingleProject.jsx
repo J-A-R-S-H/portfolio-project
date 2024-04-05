@@ -16,7 +16,6 @@ function PageSingleProject({restBase}) {
   const restPath = restBase + `posts?slug=${slug}&_embed`
   
   const formattedSlug = slug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
-console.log(formattedSlug)
 
 const [isLoading, setLoading] = useState(true)
 const [restData, setData] = useState([])
@@ -28,7 +27,6 @@ const [restData, setData] = useState([])
         const response = await fetch(restPath)
         if ( response.ok ) {
             const data = await response.json()
-            console.log(data, "all the projects")
             setData(data)
 
            setTimeout(() => {
@@ -111,13 +109,14 @@ const [restData, setData] = useState([])
 
 
 <div className="grid grid-cols-1 	">
-<button className="max-w-96	 bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto w-full	">
+<Link className="text-center max-w-96	 bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto w-full	">
  Live Site
-    </button>
+    </Link>
+    
     
 
-<button className="max-w-96	bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-2 m-auto w-full	">
-Github  </button>
+<Link className="text-center max-w-96	bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-2 m-auto w-full	">
+Github  </Link>
 </div>
 </section>
 
