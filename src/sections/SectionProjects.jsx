@@ -64,7 +64,7 @@ useEffect(() => {
            </div>
           </div>    
 
-          <Link to={`/projects`}> <h3 className="mt-3">{project.title.rendered}</h3></Link>
+          <Link  to={`/projects`}> <h3 className="mt-3 w-fit">{project.title.rendered}</h3></Link>
           
     </article>
                     ))}

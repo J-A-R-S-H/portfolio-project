@@ -28,6 +28,7 @@ const [restData, setData] = useState([])
         if ( response.ok ) {
             const data = await response.json()
             setData(data)
+            console.log(data)
 
            setTimeout(() => {
     window.scrollTo(0, 0);
@@ -43,7 +44,6 @@ const [restData, setData] = useState([])
 
 
 
-  console.log(slug)
   return (
     <div className="p-8 md:px-20 lg:px-48">
 <main id="site-main" className="lg:flex gap-4">
@@ -109,13 +109,13 @@ const [restData, setData] = useState([])
 
 
 <div className="grid grid-cols-1 	">
-<Link className="text-center max-w-96	 bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto w-full	">
+<Link to={restData[0]?.acf?.project_link} target="_blank" className="text-center max-w-96	 bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-4 m-auto w-full	">
  Live Site
     </Link>
     
     
 
-<Link className="text-center max-w-96	bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-2 m-auto w-full	">
+<Link to={restData[0]?.acf?.project_github} target="_blank" className="text-center max-w-96	bg-accent hover:bg-primary font-bold py-2 px-4 rounded-full mt-2 m-auto w-full	">
 Github  </Link>
 </div>
 </section>
