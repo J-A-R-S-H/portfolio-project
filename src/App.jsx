@@ -3,7 +3,6 @@ import PageLanding from './pages/PageLanding';
 import PageProjects from './pages/PageProjects';
 import PageSingleProject from './pages/PageSingleProject';
 import { AnimatePresence } from 'framer-motion';
-import { HashLink } from 'react-router-hash-link/dist/react-router-hash-link.cjs.production';
 const restBase = "https://johnsustituido.ca/portfolio-project-headless/wp-json/wp/v2/"
 
 

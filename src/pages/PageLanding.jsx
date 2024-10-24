@@ -11,7 +11,7 @@ import MediaIcons from "../components/MediaIcons";
 
 function PageLanding() {
 
-  const restBase = "https://johnsjustwantstochill.ca/portfolio-project-headless/wp-json/wp/v2/"
+  const restBase = "https://johnsustituido.ca/portfolio-project-headless/wp-json/wp/v2/"
 
   const [isLoading, setLoading] = useState(true)
 
